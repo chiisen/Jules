@@ -1,44 +1,45 @@
-# Gregorian to Chinese Lunar Calendar Converter
+# 公曆轉農曆轉換器
 
-## Project Overview
+## 專案概述
 
-This project provides a Python-based utility to convert Gregorian calendar dates (also known as Western calendar dates) into the corresponding Chinese Lunar Calendar dates. It's designed to be a simple, command-line accessible tool for users who need to find the Lunar calendar equivalent of a given Gregorian date.
+本專案提供一個以 Python 編寫的工具，可將公曆日期（即西曆日期）轉換為對應的中國農曆日期。設計為簡單、可於命令列操作的工具，方便需要查詢農曆日期的使用者。
 
-The primary script, `lunar_converter.py`, takes a date string in "YYYY-MM-DD" format as input and outputs the Lunar date in a traditional Chinese format, including the sexagesimal (Ganzhi) year name, the lunar month (with leap month indication), and the lunar day.
+主要腳本 lunar_converter.py 接收 "YYYY-MM-DD" 格式的日期字串作為輸入，並以傳統中文格式輸出農曆日期，包括干支年名稱、農曆月份（含閏月標示）及農曆日。
 
-## Key Features
+## 主要功能
 
-*   **Input Format**: Accepts Gregorian dates as strings in "YYYY-MM-DD" format.
-*   **Date Validation**:
-    *   Checks for correct input format.
-    *   Validates that the input is a legitimate date (e.g., not February 30th).
-    *   Ensures the date falls within the supported range.
-*   **Supported Date Range**: 1900-01-01 to 2049-12-31 (inclusive).
-*   **Output Format**: Displays the Lunar date as "干支年 月份 日期" (e.g., "甲辰年 四月十八").
-*   **Leap Month Handling**: Correctly identifies and indicates leap lunar months (e.g., "閏二月").
-*   **Error Messages**: Provides clear error messages in Chinese for invalid inputs:
-    *   "請輸入日期" (Please enter a date)
-    *   "日期格式不正確，請使用 YYYY-MM-DD 格式" (Incorrect date format, please use YYYY-MM-DD format)
-    *   "請輸入有效的日期" (Please enter a valid date)
-    *   "此日期超出支援範圍" (This date is outside the supported range)
-*   **Core Library**: Utilizes the `sxtwl` Python library for accurate underlying astronomical calculations.
+*   **輸入格式**：接受 "YYYY-MM-DD" 格式的公曆日期字串。
+*   **日期驗證**：
+    *   檢查輸入格式是否正確。
+    *   驗證輸入是否為合法日期（如不存在的 2 月 30 日）。
+    *   確認日期是否在支援範圍內。
+*   **支援日期範圍**：1900-01-01 至 2049-12-31（含）。
+*   **輸出格式**：以「干支年 月份 日期」顯示農曆日期（如：「甲辰年 四月十八」）。
+*   **閏月處理**：正確識別並標示閏月（如：「閏二月」）。
+*   **錯誤訊息**：針對無效輸入提供清楚的中文錯誤提示：
+    *   「請輸入日期」
+    *   「日期格式不正確，請使用 YYYY-MM-DD 格式」
+    *   「請輸入有效的日期」
+    *   「此日期超出支援範圍」
+*   **核心函式庫**：底層天文計算採用 `sxtwl` Python 函式庫，確保轉換精確。
 
-## Testing
+## 測試
 
-The project includes a `test_runner.py` script, which contains a suite of test cases to verify the functionality of `lunar_converter.py`. These tests cover:
-*   Basic successful conversions.
-*   Conversions of special dates (e.g., Lunar New Year).
-*   Handling of invalid inputs (format errors, non-existent dates).
-*   Boundary conditions for the supported date range.
-*   Leap month conversions.
+本專案包含 test_runner.py 測試腳本，涵蓋以下測試案例以驗證 lunar_converter.py 功能：
+*   基本轉換成功案例。
+*   特殊日期（如農曆新年）轉換。
+*   無效輸入（格式錯誤、不存在日期）處理。
+*   支援範圍邊界條件測試。
+*   閏月轉換測試。
 
-## Development Process Summary
+## 開發流程摘要
 
-The converter was developed through the following key phases:
-1.  **Library Research**: Investigated and selected the `sxtwl` library for its accuracy and feature set for Chinese calendar calculations.
-2.  **Core Logic Implementation**: Developed the fundamental date conversion function, including mappings for Heavenly Stems, Earthly Branches, and month/day names, as well as the calculation for the sexagesimal year name.
-3.  **Input Validation & Error Handling**: Added robust checks for input date strings to handle potential errors gracefully and provide user-friendly messages.
-4.  **Test Script Development**: Created a comprehensive test suite (`test_runner.py`) to ensure the converter functions correctly across a wide range of scenarios, including those specified in the initial requirements.
-5.  **Output Refinement**: Ensured that output messages and formats align with the project goals and user expectations.
-6.  **Submission**: The completed scripts (`lunar_converter.py` and `test_runner.py`) were submitted.
-```
+轉換器開發流程如下：
+1.  **函式庫調查**：研究並選用 `sxtwl` 函式庫，因其在中國曆法計算上的精確性與功能完整性。
+2.  **核心邏輯實作**：開發基本日期轉換功能，包括天干地支、月份/日期名稱對應，以及干支年名稱計算。
+3.  **輸入驗證與錯誤處理**：加強對輸入日期字串的檢查，優化錯誤處理並提供友善提示。
+4.  **測試腳本開發**：撰寫完整測試套件（test_runner.py），確保轉換器在各種情境下皆能正確運作，並符合初始需求。
+5.  **輸出優化**：確保輸出訊息與格式符合專案目標及使用者預期。
+6.  **提交**：完成的腳本（lunar_converter.py 與 test_runner.py）已提交。
+
+---
